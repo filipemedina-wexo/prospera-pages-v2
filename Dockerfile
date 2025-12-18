@@ -12,8 +12,11 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the app
-RUN npm run build
+# Build the app (run vite directly to ensure it works)
+RUN npx vite build
+
+# Debug: list files to verify dist was created
+RUN ls -la /app/dist
 
 # Production stage
 FROM nginx:alpine
@@ -28,9 +31,9 @@ RUN echo 'server { \
     root /usr/share/nginx/html; \
     index index.html; \
     location / { \
-        try_files $uri $uri/ /index.html; \
+    try_files $uri $uri/ /index.html; \
     } \
-}' > /etc/nginx/conf.d/default.conf
+    }' > /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
