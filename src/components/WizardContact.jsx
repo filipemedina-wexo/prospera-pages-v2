@@ -1,0 +1,304 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { ArrowRight, Check, Send, Sparkles, User, Briefcase, FileText, MessageCircle, Rocket, Layers, Lock } from 'lucide-react';
+
+const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
+    const [step, setStep] = useState(1);
+    const [formData, setFormData] = useState({
+        name: '',
+        whatsapp: '',
+        segment: '',
+        goal: '',
+        hasMaterial: 'nao',
+    });
+    const [ref, isInView] = useInView({ threshold: 0.1 });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const nextStep = () => setStep((prev) => prev + 1);
+    const prevStep = () => setStep((prev) => prev - 1);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Here you would integrate with your backend or email service
+        // Include selectedPlan and selectedUpgrades in the submission payload
+        console.log("Submitting:", { ...formData, selectedPlan, selectedUpgrades });
+        nextStep();
+    };
+
+    const progress = (step / 3) * 100;
+
+    return (
+        <section id="form" className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden" ref={ref}>
+            {/* Background shapes */}
+            <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-teal-50 rounded-full blur-3xl opacity-50 -z-10" />
+            <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-blue-50 rounded-full blur-3xl opacity-50 -z-10" />
+
+            <div className="container mx-auto px-4 max-w-4xl">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12"
+                >
+                    <span className="inline-flex items-center gap-2 bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-sm font-bold border border-teal-200 mb-6">
+                        <Sparkles size={14} />
+                        Vamos começar?
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
+                        Tire seu projeto do papel hoje
+                    </h2>
+                    <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                        Preencha o formulário abaixo. É rápido e sem compromisso. Nossa equipe vai analisar e entrar em contato.
+                    </p>
+                </motion.div>
+
+                <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
+                    {/* Progress Bar */}
+                    <div className="h-2 bg-slate-100 w-full relative">
+                        <motion.div
+                            className="h-full bg-gradient-to-r from-teal-400 to-blue-500"
+                            initial={{ width: 0 }}
+                            animate={{ width: `${progress}%` }}
+                            transition={{ duration: 0.5 }}
+                        />
+                    </div>
+
+                    <div className="p-8 md:p-12">
+                        <form onSubmit={handleSubmit}>
+                            <AnimatePresence mode="wait">
+                                {step === 1 && (
+                                    <motion.div
+                                        key="step1"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="space-y-6"
+                                    >
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">1</div>
+                                            <h3 className="text-2xl font-bold text-slate-800">Sobre Você</h3>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div className="space-y-2">
+                                                <Label htmlFor="name" className="text-base font-semibold text-slate-700">Seu Nome / Empresa</Label>
+                                                <div className="relative">
+                                                    <User className="absolute left-3 top-3.5 text-slate-400" size={18} />
+                                                    <Input
+                                                        id="name"
+                                                        name="name"
+                                                        placeholder="Ex: Maria Bolos ou Maria Silva"
+                                                        className="pl-10 h-12 text-lg bg-slate-50 border-slate-200 focus:border-teal-500 focus:ring-teal-500"
+                                                        value={formData.name}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <Label htmlFor="whatsapp" className="text-base font-semibold text-slate-700">WhatsApp para Contato</Label>
+                                                <div className="relative">
+                                                    <MessageCircle className="absolute left-3 top-3.5 text-slate-400" size={18} />
+                                                    <Input
+                                                        id="whatsapp"
+                                                        name="whatsapp"
+                                                        placeholder="(11) 99999-9999"
+                                                        className="pl-10 h-12 text-lg bg-slate-50 border-slate-200 focus:border-teal-500 focus:ring-teal-500"
+                                                        value={formData.whatsapp}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="segment" className="text-base font-semibold text-slate-700">Qual seu ramo de atuação?</Label>
+                                            <div className="relative">
+                                                <Briefcase className="absolute left-3 top-3.5 text-slate-400" size={18} />
+                                                <Input
+                                                    id="segment"
+                                                    name="segment"
+                                                    placeholder="Ex: Advocacia, Pizzaria, Clínica..."
+                                                    className="pl-10 h-12 text-lg bg-slate-50 border-slate-200 focus:border-teal-500 focus:ring-teal-500"
+                                                    value={formData.segment}
+                                                    onChange={handleInputChange}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-end pt-4">
+                                            <Button type="button" onClick={nextStep} size="lg" className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-8">
+                                                Próximo Passo <ArrowRight className="ml-2 w-4 h-4" />
+                                            </Button>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {step === 2 && (
+                                    <motion.div
+                                        key="step2"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="space-y-6"
+                                    >
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">2</div>
+                                            <h3 className="text-2xl font-bold text-slate-800">Sobre o Projeto</h3>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <Label htmlFor="goal" className="text-base font-semibold text-slate-700">Qual o objetivo principal do site?</Label>
+                                            <Textarea
+                                                id="goal"
+                                                name="goal"
+                                                placeholder="Ex: Quero vender mais marmitas, quero que as pessoas agendem consulta, quero mostrar meu portfólio..."
+                                                className="min-h-[120px] text-lg bg-slate-50 border-slate-200 focus:border-teal-500 focus:ring-teal-500 resize-none p-4"
+                                                value={formData.goal}
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <Label className="text-base font-semibold text-slate-700 block mb-2">Você já tem fotos ou textos prontos?</Label>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setFormData({ ...formData, hasMaterial: 'sim' })}
+                                                    className={`p-4 rounded-xl border-2 transition-all ${formData.hasMaterial === 'sim' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-500 hover:border-slate-300'}`}
+                                                >
+                                                    <span className="font-bold block mb-1">Sim, tenho tudo</span>
+                                                    <span className="text-xs">Fotos, logo e textos básicos</span>
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setFormData({ ...formData, hasMaterial: 'nao' })}
+                                                    className={`p-4 rounded-xl border-2 transition-all ${formData.hasMaterial === 'nao' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-500 hover:border-slate-300'}`}
+                                                >
+                                                    <span className="font-bold block mb-1">Não, preciso de ajuda</span>
+                                                    <span className="text-xs">Vamos criar juntos</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-between pt-4">
+                                            <Button type="button" onClick={prevStep} variant="ghost" className="text-slate-500 hover:text-slate-800">
+                                                Voltar
+                                            </Button>
+                                            <Button type="button" onClick={nextStep} size="lg" className="bg-slate-900 hover:bg-slate-800 text-white rounded-xl px-8">
+                                                Revisar e Enviar <ArrowRight className="ml-2 w-4 h-4" />
+                                            </Button>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {step === 3 && (
+                                    <motion.div
+                                        key="step3"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="space-y-6"
+                                    >
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">3</div>
+                                            <h3 className="text-2xl font-bold text-slate-800">Pronto para Prosperar?</h3>
+                                        </div>
+
+                                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+                                            <h4 className="font-bold text-slate-700 mb-4">Resumo do seu pedido:</h4>
+                                            <ul className="space-y-3">
+                                                <li className="flex gap-2 text-slate-600">
+                                                    <User size={18} className="text-teal-500 mt-0.5" />
+                                                    <span className="font-semibold">{formData.name}</span> ({formData.segment})
+                                                </li>
+                                                <li className="flex gap-2 text-slate-600">
+                                                    <MessageCircle size={18} className="text-teal-500 mt-0.5" />
+                                                    {formData.whatsapp}
+                                                </li>
+                                                <li className="flex gap-2 text-slate-600">
+                                                    <FileText size={18} className="text-teal-500 mt-0.5" />
+                                                    Objetivo: {formData.goal || "Vender mais online"}
+                                                </li>
+                                                {/* Selected Plan */}
+                                                <li className="flex gap-2 text-slate-600 pt-2 border-t border-slate-100 mt-2">
+                                                    <Rocket size={18} className="text-blue-500 mt-0.5" />
+                                                    Plano: <span className="font-bold text-slate-800">{selectedPlan || "Nenhum selecionado"}</span>
+                                                </li>
+                                                {/* Selected Upgrades */}
+                                                {selectedUpgrades && selectedUpgrades.length > 0 && (
+                                                    <li className="flex gap-2 text-slate-600">
+                                                        <Layers size={18} className="text-purple-500 mt-0.5" />
+                                                        Upgrades: <span className="font-medium text-slate-700">{selectedUpgrades.join(', ')}</span>
+                                                    </li>
+                                                )}
+                                            </ul>
+                                        </div>
+
+                                        <p className="text-sm text-slate-500 text-center">
+                                            Ao clicar em Enviar, você concorda com nossos termos. Nossa equipe entrará em contato pelo WhatsApp informado.
+                                        </p>
+
+                                        <div className="flex justify-between pt-2">
+                                            <Button type="button" onClick={prevStep} variant="ghost" className="text-slate-500 hover:text-slate-800">
+                                                Corrigir algo
+                                            </Button>
+                                            <Button type="submit" size="lg" className="bg-green-600 hover:bg-green-700 text-white rounded-xl px-10 shadow-lg shadow-green-500/30">
+                                                Enviar Solicitação
+                                                <Send className="ml-2 w-4 h-4" />
+                                            </Button>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {step === 4 && (
+                                    <motion.div
+                                        key="step4"
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="text-center py-12"
+                                    >
+                                        <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                            <Check className="text-green-600 w-12 h-12" />
+                                        </div>
+                                        <h3 className="text-3xl font-bold text-slate-900 mb-4">Recebemos seu pedido!</h3>
+                                        <p className="text-xl text-slate-600 max-w-lg mx-auto mb-8">
+                                            Parabéns pela iniciativa de prosperar. Nossa equipe já recebeu seus dados e entrará em contato pelo WhatsApp <strong>{formData.whatsapp}</strong> em breve.
+                                        </p>
+                                        <Button
+                                            onClick={() => setStep(1)}
+                                            variant="outline"
+                                            className="border-slate-200 text-slate-600 hover:bg-slate-50"
+                                        >
+                                            Voltar ao início
+                                        </Button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </form>
+                    </div>
+                </div>
+
+                <div className="mt-8 text-center text-slate-500 flex items-center justify-center gap-2">
+                    <Lock className="w-4 h-4" />
+                    <span>Seus dados estão seguros. Não enviamos spam.</span>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default WizardContact;
