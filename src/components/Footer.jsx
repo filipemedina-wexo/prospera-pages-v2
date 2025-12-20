@@ -20,7 +20,7 @@ const Footer = () => {
             <img
               src="https://horizons-cdn.hostinger.com/836a3bcf-4566-4dea-b476-99ce52484f28/16db321441534fd30c9a41bf6db32b92.png"
               alt="Prospera Logo"
-              className="h-10 w-auto mb-4"
+              className="h-24 w-auto mb-4"
             />
             <p className="text-slate-400 text-sm leading-relaxed">
               Transformando negócios em sucesso digital desde 2024.
