@@ -187,11 +187,11 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* Floating Element 2: REVIEW (Overlapping Right Center) */}
+            {/* Floating Element 2: REVIEW (Overlapping Bottom Left of Desktop) */}
             <motion.div
               animate={{ y: [0, -15, 0], x: [0, -5, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -right-6 top-32 bg-white p-4 rounded-xl shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] border border-slate-100 z-20 flex gap-3 items-center"
+              className="absolute right-52 bottom-28 bg-white p-4 rounded-xl shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] border border-slate-100 z-50 flex gap-3 items-center"
             >
               <div className="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 font-bold">A</div>
               <div>
@@ -205,7 +205,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute right-32 -bottom-8 w-[160px] h-[320px] bg-slate-900 rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] border border-slate-700/50 z-40 overflow-hidden"
+              className="absolute right-28 bottom-24 w-[160px] h-[320px] bg-slate-900 rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] border border-slate-700/50 z-40 overflow-hidden"
             >
               {/* Minimalist Screen */}
               <div className="w-full h-full bg-slate-800 relative group">

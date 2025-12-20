@@ -84,24 +84,12 @@ const Footer = () => {
             <div className="flex gap-4">
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
-                href="#"
+                href="https://www.instagram.com/useprospera.oficial/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 hover:bg-teal-500 flex items-center justify-center transition-colors"
               >
                 <Instagram size={20} />
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.1, y: -2 }}
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-teal-500 flex items-center justify-center transition-colors"
-              >
-                <Facebook size={20} />
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.1, y: -2 }}
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-teal-500 flex items-center justify-center transition-colors"
-              >
-                <Linkedin size={20} />
               </motion.a>
             </div>
           </div>
