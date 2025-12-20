@@ -390,9 +390,10 @@ const Chatbot = () => {
     const [messages, setMessages] = useState([
         {
             role: 'model',
-            text: 'Oi! Eu sou a Lia, do Prospera. Como posso te ajudar? Ah, e como é seu nome?'
+            text: 'Oi! Eu sou a Rafa, do Prospera. Como posso te ajudar? Ah, e como é seu nome?'
         }
     ]);
+    const [showNotification, setShowNotification] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [leadData, setLeadData] = useState({
@@ -422,6 +423,23 @@ const Chatbot = () => {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    // Mostrar notificação após 5 segundos
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (!isOpen) {
+                setShowNotification(true);
+            }
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Esconder notificação quando abrir o chat
+    useEffect(() => {
+        if (isOpen) {
+            setShowNotification(false);
+        }
+    }, [isOpen]);
 
     // Extrai dados do lead da conversa usando a IA
     const extractLeadData = async (history) => {
@@ -628,6 +646,16 @@ const Chatbot = () => {
                 className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-r from-teal-500 to-green-500 text-white shadow-lg shadow-teal-500/30 flex items-center justify-center ${isOpen ? 'hidden' : ''}`}
             >
                 <MessageCircle size={28} />
+                {/* Notification Badge */}
+                {showNotification && (
+                    <motion.span
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="absolute -top-1 -right-1 w-5 h-5 bg-orange-500 rounded-full border-2 border-white flex items-center justify-center"
+                    >
+                        <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                    </motion.span>
+                )}
             </motion.button>
 
             {/* Chat Window */}
