@@ -647,7 +647,7 @@ const Chatbot = () => {
                                     <MessageCircle size={20} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold">Lia | Prospera</h3>
+                                    <h3 className="font-bold">Rafa | Prospera</h3>
                                     <p className="text-xs text-teal-100">Online agora</p>
                                 </div>
                             </div>
