@@ -1,7 +1,8 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Linkedin, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (id) => {
@@ -100,12 +101,12 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
             <p>&copy; 2024 Prospera. Todos os direitos reservados.</p>
             <div className="flex gap-6">
-              <button className="hover:text-teal-400 transition-colors">
+              <Link to="/termos-de-uso" className="hover:text-teal-400 transition-colors">
                 Termos de Uso
-              </button>
-              <button className="hover:text-teal-400 transition-colors">
+              </Link>
+              <Link to="/politica-de-privacidade" className="hover:text-teal-400 transition-colors">
                 Política de Privacidade
-              </button>
+              </Link>
             </div>
           </div>
         </div>
