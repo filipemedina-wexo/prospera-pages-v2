@@ -12,7 +12,7 @@ function App() {
       <Helmet>
         <title>Site profissional para pequenos negócios | Prospera</title>
         <meta name="description" content="A Prospera cria, escreve e publica o site profissional da sua empresa para você ser encontrado, entendido e escolhido." />
-        <link rel="icon" type="image/png" href="/logo-prospera-new.png" />
+        <link rel="icon" type="image/png" href="/prospera-simbolo-transparente.png" />
       </Helmet>
       <Routes>
         <Route path="/" element={<Home />} />
