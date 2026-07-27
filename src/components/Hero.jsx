@@ -26,19 +26,19 @@ const Hero = () => {
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-50 to-green-50 border border-teal-100 rounded-full text-teal-700 font-semibold text-sm mb-6 shadow-sm">
                 <Sparkles size={16} className="text-teal-500 animate-pulse" />
-                Simples. Profissional. Feito para vender.
+                Para sua empresa ser encontrada.
               </span>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-teal-800 to-slate-800 bg-clip-text text-transparent leading-[1.2] tracking-tight pb-4">
-            PARE DE PERDER VENDAS POR NÃO SER ENCONTRADO.
+                Quando alguém procura pelo que você oferece, sua empresa aparece?
               </h1>
-              <p className="text-xl text-slate-600 mb-3 leading-relaxed">Seu site profissional em até 12x.</p>
-              <p className="text-lg text-slate-500 mb-8 leading-relaxed">A Prospera cria, escreve e publica o site da sua empresa para você ser encontrado, entendido e escolhido.</p>
+              <p className="text-xl text-slate-600 mb-3 leading-relaxed">Sua presença online clara e profissional, sem complicação.</p>
+              <p className="text-lg text-slate-500 mb-8 leading-relaxed">A Prospera organiza as informações do seu negócio para mais pessoas conhecerem, confiarem e escolherem você.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col sm:flex-row gap-4 mb-10">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                 <Button onClick={() => scrollToSection('form')} size="lg" className="w-full bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white text-lg px-8 py-6 shadow-xl hover:shadow-teal-500/20 transition-all duration-300 rounded-full">
-                  QUERO MEU SITE <ArrowRight className="ml-2 w-5 h-5" />
+                  QUERO SER ENCONTRADO <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
@@ -49,7 +49,7 @@ const Hero = () => {
             </motion.div>
 
             <div className="flex flex-wrap gap-3 text-sm font-medium text-slate-500">
-              {['Preço justo', 'Entrega clara', 'Nós fazemos por você'].map((item) => (
+              {['Informações claras', 'Presença profissional', 'Feito para o seu negócio'].map((item) => (
                 <div key={item} className="flex items-center gap-2 bg-white/60 px-3 py-1.5 rounded-lg border border-slate-100">
                   <span className="text-teal-600">✓</span>{item}
                 </div>
