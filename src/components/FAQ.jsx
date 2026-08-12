@@ -5,9 +5,9 @@ import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   { question: 'Eu preciso entender de tecnologia ou design?', answer: 'Não. Você nos conta sobre o seu negócio e a Prospera cuida da estrutura, dos textos, do layout e da publicação.' },
-  { question: 'Quanto tempo demora para meu site ficar pronto?', answer: 'No Plano Essencial, a primeira versão é entregue para aprovação em até 3 dias úteis após o recebimento do material. Projetos maiores têm prazo definido conforme o escopo.' },
+  { question: 'Quanto tempo demora para meu projeto ficar pronto?', answer: 'O prazo é definido conforme o escopo, as integrações necessárias e os materiais disponíveis. Alinhamos isso antes de iniciar.' },
   { question: 'E se eu não gostar do resultado?', answer: 'Antes da publicação, você recebe uma prévia para revisar. Os ajustes previstos na proposta são feitos antes do seu aceite final.' },
-  { question: 'Eu tenho que pagar mensalidade?', answer: 'O Plano Essencial tem pagamento pela criação e inclui 1 ano de hospedagem. Depois desse período, a renovação e o domínio seguem as condições vigentes do serviço.' },
+  { question: 'Eu tenho que pagar mensalidade?', answer: 'A necessidade de hospedagem, domínio ou ferramentas de terceiros depende do projeto. Tudo é alinhado com transparência antes de iniciar.' },
   { question: 'Posso usar um domínio que já tenho?', answer: 'Sim. A equipe pode orientar a configuração do seu domínio existente na nova página.' },
   { question: 'Qual a diferença para Wix ou WordPress?', answer: 'Em vez de entregar apenas uma ferramenta, a Prospera cria a página para você, organiza as informações e orienta a publicação.' },
 ];

@@ -46,10 +46,10 @@ const Footer = () => {
                 Portfolio
               </button>
               <button
-                onClick={() => scrollToSection('planos')}
+                onClick={() => scrollToSection('projects')}
                 className="block text-slate-400 hover:text-teal-400 transition-colors text-sm"
               >
-                Planos
+                Projetos
               </button>
               <button
                 onClick={() => scrollToSection('depoimentos')}

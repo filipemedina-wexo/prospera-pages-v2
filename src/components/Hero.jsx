@@ -32,13 +32,13 @@ const Hero = () => {
                 Quando alguém procura pelo que você oferece, sua empresa aparece?
               </h1>
               <p className="text-xl text-slate-600 mb-3 leading-relaxed">Sua presença online clara e profissional, sem complicação.</p>
-              <p className="text-lg text-slate-500 mb-8 leading-relaxed">A Prospera organiza as informações do seu negócio para mais pessoas conhecerem, confiarem e escolherem você.</p>
+              <p className="text-lg text-slate-500 mb-8 leading-relaxed">Nós organizamos as informações do seu negócio para mais pessoas conhecerem, confiarem e escolherem você.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col sm:flex-row gap-4 mb-10">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                 <Button onClick={() => scrollToSection('form')} size="lg" className="w-full bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white text-lg px-8 py-6 shadow-xl hover:shadow-teal-500/20 transition-all duration-300 rounded-full">
-                  QUERO SER ENCONTRADO <ArrowRight className="ml-2 w-5 h-5" />
+                  QUERO UM ORÇAMENTO <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">

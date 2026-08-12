@@ -35,7 +35,7 @@ const Header = () => {
     { name: 'Benefícios', id: 'what-you-receive' },
     { name: 'Como funciona', id: 'how-it-works' },
     { name: 'Exemplos', id: 'portfolio' },
-    { name: 'Preços', id: 'pricing' },
+    { name: 'Projetos', id: 'projects' },
     { name: 'Upgrades', id: 'upgrades' },
     { name: 'FAQ', id: 'faq' },
   ];
@@ -78,7 +78,7 @@ const Header = () => {
                 onClick={() => scrollToSection('form')}
                 className="bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white shadow-lg hover:shadow-teal-500/20 transition-all duration-300 rounded-full px-6"
               >
-                Quero minha página pronta
+                Quero conhecer
               </Button>
             </motion.div>
           </nav>
@@ -115,7 +115,7 @@ const Header = () => {
                   onClick={() => scrollToSection('form')}
                   className="w-full bg-gradient-to-r from-teal-600 to-green-600 text-white rounded-xl py-6 shadow-lg shadow-teal-500/20"
                 >
-                  Quero minha página pronta
+                  Quero conhecer
                 </Button>
               </div>
             </div>

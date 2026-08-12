@@ -253,7 +253,7 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                                         </div>
 
                                         <div className="space-y-2">
-                                            <Label htmlFor="goal" className="text-base font-semibold text-slate-700">Qual o objetivo principal do site?</Label>
+                                            <Label htmlFor="goal" className="text-base font-semibold text-slate-700">Qual o objetivo principal do projeto?</Label>
                                             <Textarea
                                                 id="goal"
                                                 name="goal"
@@ -265,31 +265,39 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                                         </div>
 
                                         <div className="space-y-3">
-                                            <Label className="text-base font-semibold text-slate-700 block">Qual plano te interessa?</Label>
-                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                            <Label className="text-base font-semibold text-slate-700 block">Qual projeto te interessa?</Label>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                 <button
                                                     type="button"
-                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Essencial' })}
-                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Essencial' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
+                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Site Institucional' })}
+                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Site Institucional' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
                                                 >
-                                                    <span className="font-bold block mb-1">Essencial</span>
-                                                    <span className="text-xs">A partir de R$ 1.400 • Página única</span>
+                                                    <span className="font-bold block mb-1">Site Institucional</span>
+                                                    <span className="text-xs">Apresente sua marca, serviços e diferenciais</span>
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Site Completo' })}
-                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Site Completo' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
+                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Dashboards' })}
+                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Dashboards' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
                                                 >
-                                                    <span className="font-bold block mb-1">Site Completo</span>
-                                                    <span className="text-xs">A partir de R$ 2.000</span>
+                                                    <span className="font-bold block mb-1">Dashboards</span>
+                                                    <span className="text-xs">Indicadores e resultados claros para o time</span>
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Projeto Especial' })}
-                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Projeto Especial' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
+                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Automações' })}
+                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Automações' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
                                                 >
-                                                    <span className="font-bold block mb-1">Projeto Especial</span>
-                                                    <span className="text-xs">Sob consulta</span>
+                                                    <span className="font-bold block mb-1">Automações</span>
+                                                    <span className="text-xs">Fluxos conectados com menos tarefas manuais</span>
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setFormData({ ...formData, selectedPlan: 'Páginas de Lançamento' })}
+                                                    className={`p-4 rounded-xl border-2 transition-all text-left ${formData.selectedPlan === 'Páginas de Lançamento' ? 'border-teal-500 bg-teal-50 text-teal-800' : 'border-slate-200 text-slate-600 hover:border-slate-300'}`}
+                                                >
+                                                    <span className="font-bold block mb-1">Páginas de Lançamento</span>
+                                                    <span className="text-xs">Campanhas com caminho claro para conversão</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -372,7 +380,7 @@ const WizardContact = ({ selectedPlan, selectedUpgrades }) => {
                                                 {/* Selected Plan */}
                                                 <li className="flex gap-2 text-slate-600 pt-2 border-t border-slate-100 mt-2">
                                                     <Rocket size={18} className="text-blue-500 mt-0.5" />
-                                                    Plano: <span className="font-bold text-slate-800">{formData.selectedPlan || selectedPlan || "Nenhum selecionado"}</span>
+                                                    Projeto: <span className="font-bold text-slate-800">{formData.selectedPlan || selectedPlan || "Nenhum selecionado"}</span>
                                                 </li>
                                                 {/* Selected Upgrades */}
                                                 {(formData.selectedUpgrades?.length > 0 || selectedUpgrades?.length > 0) && (

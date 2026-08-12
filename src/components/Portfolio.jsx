@@ -6,6 +6,15 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
+    title: 'Wexo',
+    category: 'Agência de Publicidade',
+    image: '/portfolio/wexo.png',
+    url: 'https://wexo.com.br/',
+    isTemplate: false,
+    badge: 'Institucional',
+    badgeClass: 'bg-blue-500'
+  },
+  {
     title: 'Template para Pousadas e Hotéis',
     category: 'Site Completo',
     image: '/portfolio/pousada.png',
@@ -80,9 +89,9 @@ const Portfolio = () => {
               onClick={() => openModal(project)}
             >
               <div className="relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3] bg-slate-200">
-                {project.isTemplate && (
-                  <div className="absolute top-3 left-3 z-10 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    Template
+                {(project.isTemplate || project.badge) && (
+                  <div className={`absolute top-3 left-3 z-10 ${project.badgeClass || 'bg-teal-600'} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
+                    {project.badge || 'Template'}
                   </div>
                 )}
                 <img
